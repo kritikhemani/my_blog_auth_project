@@ -1,0 +1,17 @@
+# 1. Virtual Environment folder
+venv/
+.venv/
+env/
+
+# 2. Python compiled files and runtime files
+__pycache__/
+*.pyc
+
+# 3. Database files
+# This ignores the local SQLite file we defined in database.py
+*.db
+*.sqlite
+*.sqlite3
+
+# 4. Environment/Configuration files (often contains secret keys)
+.env

@@ -1,0 +1,14 @@
+# requirements.txt
+
+# Core ORM library
+SQLAlchemy>=2.0
+
+# Essential for secure password hashing (authentication)
+passlib[bcrypt]
+
+# Recommended for configuration management
+python-dotenv
+
+# Example DB driver (optional if only using default SQLite)
+# Uncomment or replace with your actual production database driver
+# psycopg2-binary
