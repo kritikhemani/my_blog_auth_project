@@ -1,6 +1,8 @@
 # my_blog_auth_project
 
+
 # 📝 Blog+Auth Database Core
+
 
 ## Introduction
 
@@ -8,7 +10,7 @@ This repository contains the Database Core for a modern blogging and user authen
 
 The project is built on Python and leverages SQLAlchemy 2.0, utilizing the Object-Relational Mapper (ORM) to define a clean, relational schema and implement robust CRUD (Create, Read, Update, Delete) operations. This foundation ensures secure user management and efficient content handling, providing a reliable backend for a scalable blog platform.
 
-##Key Technologies Used:
+## Key Technologies Used:
 
     Python: The core programming language.
 
