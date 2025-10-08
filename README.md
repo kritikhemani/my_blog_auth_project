@@ -1,8 +1,8 @@
 # my_blog_auth_project
 
-#📝 Blog+Auth Database Core
+# 📝 Blog+Auth Database Core
 
-##Introduction
+## Introduction
 
 This repository contains the Database Core for a modern blogging and user authentication application.
 
