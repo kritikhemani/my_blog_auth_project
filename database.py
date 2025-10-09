@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session, DeclarativeBase
 
 # Configuration: Using SQL
 DATABASE_URL = "sqlite:///simplified_blog.db"
-engine = create_engine(DATABASE_URL, echo=False) 
+engine = create_engine(DATABASE_URL, echo=True) 
 
 # Base Class Definition
 class Base(DeclarativeBase):
