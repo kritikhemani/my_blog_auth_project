@@ -3,8 +3,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, DeclarativeBase
 
 # Configuration: Using SQL
-DATABASE_URL = "sqlite:///simplified_blog.db"
+DATABASE_URL = "sqlite:///blog.db"
 engine = create_engine(DATABASE_URL, echo=True) 
+
 
 # Base Class Definition
 class Base(DeclarativeBase):
