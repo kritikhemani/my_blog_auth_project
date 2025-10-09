@@ -21,3 +21,4 @@ def create_db_and_tables():
     print("Creating database and tables...")
     Base.metadata.create_all(engine)
     print("Database ready.")
+    
