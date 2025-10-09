@@ -1,16 +1,19 @@
 from typing import List
 from datetime import datetime
-from sqlalchemy import ForeignKey, String, Text, DateTime, Boolean, Table, Column
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from .database import Base
+from sqlalchemy import create_engine, ForeignKey, String, Text, DateTime, Boolean, Table, Column, Index
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
-post_tag_table = Table(
-    'post_tag',
-    Base.metadata,
-    Column("post_id", ForeignKey("posts.id"), primary_key=True),
-    Column("tag_id", ForeignKey("tags.id"), primary_key=True)
-)
+# Base Class Definition 
+class Base(DeclarativeBase):
+    pass
+
+
+class PostTag(Base):
+    __tablename__ = 'post_tag',
+    post_id: Mapped[int] = mapped_column(ForeignKey("posts.id"), primary_key=True)
+    tag_id: Mapped[int] = mapped_column(ForeignKey("tags.id"), primary_key=True)
+
 
 
 class User(Base):
@@ -20,4 +23,14 @@ class User(Base):
     email: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
 
-    posts: Mapped[List["Post"]] = relationship("Post", back_populates="author")
+    posts: Mapped[List["Post"]] = relationship(back_populates="author")
+    
+    
+class Comment(Base):
+    __tablename__ = "comments"
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    
+    
+class Tag(Base):
+    __tablename__ = "tags"
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
