@@ -29,3 +29,13 @@ def update_post_content(session: Session, post_id: int, new_content: str):
         session.commit()
         return post
     return None
+
+# --- Delete (D) ---
+def delete_comment(session: Session, comment_id: int) -> bool:
+    # Option 1: Retrieve and delete (ORM object style)
+    comment = session.get(Comment, comment_id)
+    if comment:
+        session.delete(comment)
+        session.commit()
+        return True
+    return False
