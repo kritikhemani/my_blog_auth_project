@@ -13,3 +13,9 @@ def create_user(session: Session, username: str, email: str, password_hash: str)
     session.commit()
     session.refresh(new_user)
     return new_user
+
+# --- Read (R) ---
+def get_post_by_slug(session: Session, slug: str) -> Post | None:
+    # Use session.scalars for a list of ORM objects, then .first() to get the single object
+    stmt = select(Post).where(Post.slug == slug)
+    return session.scalars(stmt).first()
