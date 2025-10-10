@@ -19,3 +19,13 @@ def get_post_by_slug(session: Session, slug: str) -> Post | None:
     # Use session.scalars for a list of ORM objects, then .first() to get the single object
     stmt = select(Post).where(Post.slug == slug)
     return session.scalars(stmt).first()
+
+# --- Update (U) ---
+def update_post_content(session: Session, post_id: int, new_content: str):
+    post = session.get(Post, post_id) # Efficiently get by primary key
+    if post:
+        post.content = new_content
+        # 'updated_at' is automatically handled by the model's 'onupdate=datetime.now'
+        session.commit()
+        return post
+    return None
